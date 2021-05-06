@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Terms</key>
+	<dict>
+		<key>solenoid</key>
+		<dict>
+			<key>Definition</key>
+			<string>A **solenoid** is a cylindrical coil that generates a magnetic field when an electric current is passed through, pulling a metal rod inside the cylinder.</string>
+			<key>Title</key>
+			<string>Solenoid</string>
+			<key>FirstUse</key>
+			<dict>
+				<key>PageReference</key>
+				<string>Chapter1.playgroundchapter/Page2.playgroundpage</string>
+				<key>Title</key>
+				<string>How it works</string>
+			</dict>
+		</dict>
+		<key>switch</key>
+		<dict>
+			<key>Definition</key>
+			<string>A **switch** is basically a button, which when pressed, an electric circuit is closed, passing current if there is any.</string>
+			<key>Title</key>
+			<string>Switch</string>
+			<key>FirstUse</key>
+			<dict>
+				<key>PageReference</key>
+				<string>Chapter1.playgroundchapter/Page2.playgroundpage</string>
+				<key>Title</key>
+				<string>How it works</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>
