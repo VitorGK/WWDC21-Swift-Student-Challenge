@@ -840,7 +840,7 @@ open class PinballScene: SKScene, SKPhysicsContactDelegate {
                     })
                 } else if playerLifes == 0 {
                     self.run(SKAction.wait(forDuration: 1), completion: { [self] in
-                        gameMusic.run(SKAction.changeVolume(to: 0.125, duration: 0.5))
+                        gameMusic.run(SKAction.changeVolume(to: 0.25, duration: 0.5))
                         run(SKAction.wait(forDuration: 0.5), completion: { [self] in
                             rampInBlocker.texture = rampInBlockerTextures[0]
                             gameOver()
