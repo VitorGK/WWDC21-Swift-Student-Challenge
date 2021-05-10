@@ -244,11 +244,6 @@ open class PinballScene: SKScene, SKPhysicsContactDelegate {
         addChild(launcherSound)
         addChild(gameOverSound)
         
-        // Music
-        gameMusic.autoplayLooped = false
-        addChild(gameMusic)
-        gameMusic.autoplayLooped = true
-        
         // PinballBG
         pinballBG.zPosition = 0
         addChild(pinballBG)
@@ -751,7 +746,7 @@ open class PinballScene: SKScene, SKPhysicsContactDelegate {
             })
             if !(ballCounter > maxBalls) {
                 let newBall = Ball(position: CGPoint(x: tunnelL.position.x+10, y: tunnelL.position.y), friction: ballFriction, restitution: ballRestitution, categoryBitMask: ballCategory, collisionBitMask: ballCategory | wallCategory | plungerCategory | targetCategory | slingshotCategory | bumperCategory | flipperCategory | removeBallCategory | rampInBlockerCategory, contactTestBitMask: tunnelLCategory | tunnelUCategory | launcherCategory | lockPlungerCategory)
-                newBall.name = "Ball" + String(ballCounter)
+                newBall.name = "Ball"// + String(ballCounter)
                 ballCounter += 1
                 addChild(newBall)
 //                balls.updateValue(newBall, forKey: ball.name!)
@@ -809,14 +804,14 @@ open class PinballScene: SKScene, SKPhysicsContactDelegate {
             ball.removeFromParent()
             ballCounter -= 1
             if ballCounter < 1 {
-                self.plungerLocked = false
                 self.ballInGame = false
                 playerLifes -= 1
                 if playerLifes == 2 {
+                    self.plungerLocked = false
                     self.run(SKAction.wait(forDuration: 1.5), completion: { [self] in
                         rampInBlocker.texture = rampInBlockerTextures[0]
                         let newBall = Ball(position: CGPoint(x: 335, y: -150), friction: ballFriction, restitution: ballRestitution, categoryBitMask: ballCategory, collisionBitMask: ballCategory | wallCategory | plungerCategory | targetCategory | slingshotCategory | bumperCategory | flipperCategory | removeBallCategory, contactTestBitMask: tunnelLCategory | tunnelUCategory | launcherCategory | lockPlungerCategory | rampInBlockerCategory)
-                        newBall.name = "Ball" + String(ballCounter)
+                        newBall.name = "Ball"// + String(ballCounter)
                         ballCounter += 1
                         if !muteSounds {
                             run(newBallSound)
@@ -826,10 +821,11 @@ open class PinballScene: SKScene, SKPhysicsContactDelegate {
                         ballLifes[1].texture = ballTextures[1]
                     })
                 } else if playerLifes == 1 {
+                    self.plungerLocked = false
                     self.run(SKAction.wait(forDuration: 1.5), completion: { [self] in
                         rampInBlocker.texture = rampInBlockerTextures[0]
                         let newBall = Ball(position: CGPoint(x: 335, y: -150), friction: ballFriction, restitution: ballRestitution, categoryBitMask: ballCategory, collisionBitMask: ballCategory | wallCategory | plungerCategory | targetCategory | slingshotCategory | bumperCategory | flipperCategory | removeBallCategory, contactTestBitMask: tunnelLCategory | tunnelUCategory | launcherCategory | lockPlungerCategory | rampInBlockerCategory)
-                        newBall.name = "Ball" + String(ballCounter)
+                        newBall.name = "Ball"// + String(ballCounter)
                         ballCounter += 1
                         if !muteSounds {
                             run(newBallSound)
@@ -840,7 +836,7 @@ open class PinballScene: SKScene, SKPhysicsContactDelegate {
                     })
                 } else if playerLifes == 0 {
                     self.run(SKAction.wait(forDuration: 1), completion: { [self] in
-                        gameMusic.run(SKAction.changeVolume(to: 0.25, duration: 0.5))
+                        gameMusic.run(SKAction.changeVolume(to: 1/3, duration: 0.5))
                         run(SKAction.wait(forDuration: 0.5), completion: { [self] in
                             rampInBlocker.texture = rampInBlockerTextures[0]
                             gameOver()
@@ -930,6 +926,7 @@ open class PinballScene: SKScene, SKPhysicsContactDelegate {
     
     open func startGame() {
         if firstPlay {
+            addChild(gameMusic)
             gameMusic.run(SKAction.play())
             firstPlay = false
         }
@@ -957,13 +954,14 @@ open class PinballScene: SKScene, SKPhysicsContactDelegate {
                                         NSAttributedString.Key.font: textFont],
                                        range: multiplierRange)
         multiplierLabel.attributedText = multiplierString
+        plungerLocked = false
         newHighscore = false
         playerLifes = 3
         for i in 0..<playerLifes {
             ballLifes[i].texture = ballTextures[0]
         }
         ball = Ball(position: CGPoint(x: 335, y: -150), friction: ballFriction, restitution: ballRestitution, categoryBitMask: ballCategory, collisionBitMask: ballCategory | wallCategory | plungerCategory | targetCategory | slingshotCategory | bumperCategory | flipperCategory | removeBallCategory, contactTestBitMask: tunnelLCategory | tunnelUCategory | launcherCategory | lockPlungerCategory | rampInBlockerCategory)
-        ball.name = "Ball" + String(ballCounter)
+        ball.name = "Ball"// + String(ballCounter)
         ballCounter += 1
         gameStarted = true
         self.run(SKAction.wait(forDuration: 1.5), completion: { [self] in
