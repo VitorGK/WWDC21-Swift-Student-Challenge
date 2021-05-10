@@ -2,6 +2,8 @@
 
 Pinball - A simple introduction to the game and its mechanics, and a playable machine
 
+![Pinball Cover](Pinball.playgroundbook/Contents/PrivateResources/PinballCover.png)
+
 
 ## Introduction
 
@@ -25,6 +27,7 @@ That's the main page of the playground, where the game resides.
 
 ![Third Page Screenshot](screenshots/chapter1_page3.png)
 _I dare you score a total of 50.000 points_
+
 
 ## About Me
 
