@@ -25,22 +25,23 @@
  Feel free to edit and run the code below to see a few images of pinball machines.
  ___
  
- *In the next page, we will see a few objects and how they work.*
+ *In the [next page](@next), we will see a few objects and how they work.*
 */
-//#-code-completion(everything, hide)
-//#-code-completion(currentmodule, show, image1, image2, image3)
-
-let liveViewImage: Image = ./*#-editable-code Type here*/image1/*#-end-editable-code*/
-
 //#-hidden-code
+import UIKit
+
 enum Image: String {
     case image1 = "Image1.jpg"
     case image2 = "Image2.jpg"
     case image3 = "Image3.jpg"
 }
+//#-end-hidden-code
+//#-code-completion(everything, hide)
+//#-code-completion(identifier, show, image1, image2, image3)
 
-import UIKit
+let liveViewImage: Image = ./*#-editable-code Type here*/image1/*#-end-editable-code*/
 
+//#-hidden-code
 open class IntroViewController: UIViewController {
     open override func viewDidLoad() {
         let view = UIView()

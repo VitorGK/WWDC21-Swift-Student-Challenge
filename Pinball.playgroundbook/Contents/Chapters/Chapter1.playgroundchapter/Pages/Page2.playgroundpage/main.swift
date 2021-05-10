@@ -1,5 +1,5 @@
 /*:
- # How does it works?
+ # How does it work?
  
  The pinball machines use a lot of mechanical components, mainly [switches](glossary://switch) and [solenoids](glossary://solenoid).
  ___
@@ -15,9 +15,9 @@
  
  ___
  
- *In the next page, you will be able to experience an emulation of a simple pinball machine with most of its objects reacting to ball hits.*
+ *In the [next page](@next), you will be able to experience an emulation of a simple pinball machine with most of its objects reacting to ball hits.*
  */
-
+//#-code-completion(everything, hide)
 //#-hidden-code
 import Pinball
 import UIKit
@@ -54,4 +54,3 @@ import PlaygroundSupport
 
 PlaygroundPage.current.setLiveView(ExamplesViewController())
 //#-end-hidden-code
-//#-code-completion(everything, hide)
