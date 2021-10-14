@@ -1,4 +1,4 @@
-# WWDC21 Swift Student Challenge
+# WWDC21 Swift Student Challenge - Pinball
 
 Pinball - A simple introduction to the game and its mechanics, and a playable machine
 
